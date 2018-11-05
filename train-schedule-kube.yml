@@ -17,7 +17,7 @@ spec:
       nodeSelector:
         dedicated: master
       tolerations:
-      - key: dedicated
+      - key: node-role.kubernetes.io
         operator: Equal
         value: master
         effect: NoSchedule
