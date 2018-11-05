@@ -20,10 +20,15 @@ metadata:
   labels:
     app: train-schedule
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: train-schedule
+  tolerations:
+    - key: "key"
+        operator: "Equal"
+        value: "value"
+        effect: "NoSchedule" 
   template:
     metadata:
       labels:
