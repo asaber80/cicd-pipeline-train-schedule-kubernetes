@@ -23,17 +23,19 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: train-schedule
-  tolerations:
-    - key: "key"
-        operator: "Equal"
-        value: "value"
-        effect: "NoSchedule" 
+      app: train-schedule 
   template:
     metadata:
       labels:
         app: train-schedule
     spec:
+      nodeSelector:
+        dedicated: master
+      tolerations:
+      - key: dedicated
+        operator: Equal
+        value: master
+        effect: NoSchedule
       containers:
       - name: train-schedule
         image: $DOCKER_IMAGE_NAME:$BUILD_NUMBER
