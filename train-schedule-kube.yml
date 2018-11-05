@@ -17,10 +17,10 @@ spec:
       nodeSelector:
         dedicated: master
       tolerations:
-      - key: node-role.kubernetes.io
-        operator: Equal
-        value: master
-        effect: NoSchedule
+      - key: "node-role.kubernetes.io"
+        operator: "Equal"
+        value: "master"
+        effect: "NoSchedule"
       containers:
       - name: train-schedule
         image: $DOCKER_IMAGE_NAME:$BUILD_NUMBER
